@@ -34,10 +34,22 @@ coffee-menu-service/
 ```
 ## วิธีติดตั้งและรันโปรเจกต์
 
-### ขั้นตอนที่ 1: Clone โปรเจกต์ลงเครื่อง
-```bash
-git clone [https://github.com/](https://github.com/)<Kawinthida2548>/coffee-menu-service.git
-cd coffee-menu-service
+**ขั้นตอนที่ 1: สร้างโปรเจกต์ที่ start.spring.io**
+| ตัวเลือก | ค่าที่ใช้ |
+|---|---|
+| Project | Maven |
+| Language | Java |
+| Spring Boot | 4.1.0 |
+| Group | `com.example` |
+| Artifact | `coffee-menu-service` |
+| Java version | 17 |
+| Dependencies | Spring Web |
+
+## สร้างโฟลเดอร์และไฟล์
+```
+สร้างโฟลเดอร์ `model`, `service`, `controller`
+ภายใต้ `src/main/java/com/example/coffee_menu_service/`
+(โฟลเดอร์เดียวกับที่มี `CoffeeMenuServiceApplication.java`)
 ```
 ### ขั้นตอนที่ 2: รันแอปพลิเคชัน
 ```bash
