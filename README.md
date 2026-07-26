@@ -1,4 +1,6 @@
 # Coffee Menu Service — REST API
+## นางสาวกวินธิดา อนุนิวัฒน์ 673380390-5 sec4
+
 REST API เบื้องต้นสำหรับจัดการเมนูร้านกาแฟ (เพิ่ม / ดู / แก้ไข / ลบ) พัฒนาด้วย **Spring Boot** ตามหลักการแยกชั้น (Layered Design): **Controller → Service → Model**
 
 ---
