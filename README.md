@@ -111,21 +111,19 @@ public ResponseEntity<Coffee> getById(@PathVariable int id) {
 ---
 ## คำตอบ Discussion 
 
-### 2.1 HTTP method แต่ละตัว (GET/POST/PUT/DELETE) ต่างกันอย่างไร
-```
-GET ใช้ดูข้อมูล ไม่เปลี่ยนแปลงอะไร (เช่น `GET /coffees` ดูเมนูทั้งหมด) POST ใช้สร้างข้อมูลใหม่ (เช่น `POST /coffees` เพิ่ม Cappuccino) PUT ใช้แก้ไขข้อมูลเดิมทั้งก้อน (เช่น `PUT /coffees/2` เปลี่ยนราคา Latte) ส่วน DELETE ใช้ลบข้อมูลออกจากระบบ (เช่น `DELETE /coffees/3`)
-```
-### 2.2 ทำไมต้องแยก Controller กับ Service ออกจากกัน มีข้อดีอย่างไรถ้าโปรแกรมโตขึ้น
-```
-Controller มีหน้าที่รับ request/ส่ง response อย่างเดียว ส่วน Service เก็บ logic และข้อมูลจริง การแยกแบบนี้ทำให้แก้ไขง่าย เช่น ถ้าจะเปลี่ยนจากเก็บใน List เป็นฐานข้อมูล แก้แค่ Service โดยไม่กระทบ Controller เลย และยังทดสอบ logic แยกจาก HTTP ได้ด้วย
-```
-### 2.3 ข้อมูลที่เก็บไว้ใน List ใน memory หายไปตอนไหน และถ้าอยากให้ไม่หายควรทำอย่างไร
-```
-ข้อมูลอยู่ใน RAM เท่านั้น ไม่ได้เขียนลงดิสก์ จึงหายทันทีที่แอป restart หรือหยุดทำงาน ถ้าอยากให้ไม่หายต้องเปลี่ยนไปเก็บในฐานข้อมูล เช่น H2 หรือ MySQL ร่วมกับ Spring Data JPA แทน
-```
-### 2.4 @RestController, @GetMapping, @PostMapping, @PathVariable, @RequestBody แต่ละตัวทำหน้าที่อะไร
-```
-`@RestController` บอกว่า class นี้รับ HTTP request และตอบกลับเป็น JSON `@GetMapping`/`@PostMapping` กำหนดว่า method ไหนรับ GET/POST ที่ path ไหน `@PathVariable` ดึงค่าจาก URL เช่น `{id}` มาเป็นตัวแปร ส่วน `@RequestBody` แปลง JSON ที่ส่งมาใน body ให้เป็น Java object อัตโนมัติ
-```
+### 1. HTTP method แต่ละตัว (GET/POST/PUT/DELETE) ต่างกันอย่างไร
 
+GET ใช้ดูข้อมูล ไม่เปลี่ยนแปลงอะไร (เช่น `GET /coffees` ดูเมนูทั้งหมด) POST ใช้สร้างข้อมูลใหม่ (เช่น `POST /coffees` เพิ่ม Cappuccino) PUT ใช้แก้ไขข้อมูลเดิมทั้งก้อน (เช่น `PUT /coffees/2` เปลี่ยนราคา Latte) ส่วน DELETE ใช้ลบข้อมูลออกจากระบบ (เช่น `DELETE /coffees/3`)
+
+### 2. ทำไมต้องแยก Controller กับ Service ออกจากกัน มีข้อดีอย่างไรถ้าโปรแกรมโตขึ้น
+
+Controller มีหน้าที่รับ request/ส่ง response อย่างเดียว ส่วน Service เก็บ logic และข้อมูลจริง การแยกแบบนี้ทำให้แก้ไขง่าย เช่น ถ้าจะเปลี่ยนจากเก็บใน List เป็นฐานข้อมูล แก้แค่ Service โดยไม่กระทบ Controller เลย และยังทดสอบ logic แยกจาก HTTP ได้ด้วย
+
+### 2. ข้อมูลที่เก็บไว้ใน List ใน memory หายไปตอนไหน และถ้าอยากให้ไม่หายควรทำอย่างไร
+
+ข้อมูลอยู่ใน RAM เท่านั้น ไม่ได้เขียนลงดิสก์ จึงหายทันทีที่แอป restart หรือหยุดทำงาน ถ้าอยากให้ไม่หายต้องเปลี่ยนไปเก็บในฐานข้อมูล เช่น H2 หรือ MySQL ร่วมกับ Spring Data JPA แทน
+
+### 2. @RestController, @GetMapping, @PostMapping, @PathVariable, @RequestBody แต่ละตัวทำหน้าที่อะไร
+
+`@RestController` บอกว่า class นี้รับ HTTP request และตอบกลับเป็น JSON `@GetMapping`/`@PostMapping` กำหนดว่า method ไหนรับ GET/POST ที่ path ไหน `@PathVariable` ดึงค่าจาก URL เช่น `{id}` มาเป็นตัวแปร ส่วน `@RequestBody` แปลง JSON ที่ส่งมาใน body ให้เป็น Java object อัตโนมัติ
 
